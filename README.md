@@ -10,7 +10,6 @@ Compare version strings easily with this category to NSString. To compare versio
 ```objective-c
 
 [@"1.2.2.4" compareToVersion:@"1.2.2.5"];
-
 ```
 
 The result is NSComparisonResult; either NSOrderedAscending, NSOrderedDescending, NSOrderedSame.
@@ -20,7 +19,6 @@ The function will take all version elements into account and detects version cha
 ```objective-c
 
 [@"1.2.2" compare:@"1.2.2.5" options:NSNumericSearch]
-
 ```
 
 ## Installation
@@ -30,5 +28,4 @@ Include the two NSString+CompareToVersion.* files, located in the Library folder
 ```objective-c
 
 #import "NSString+CompareToVersion.h"
-
 ```
