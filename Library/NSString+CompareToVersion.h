@@ -12,10 +12,10 @@
 
 -(NSComparisonResult)compareToVersion:(NSString *)version;
 
--(BOOL)isOlderThan:(NSString *)version;
--(BOOL)isNewerThan:(NSString *)version;
--(BOOL)isEqualTo:(NSString *)version;
--(BOOL)isEqualOrOlderThan:(NSString *)version;
--(BOOL)isEqualOrNewerThan:(NSString *)version;
+-(BOOL)isOlderThanVersion:(NSString *)version;
+-(BOOL)isNewerThanVersion:(NSString *)version;
+-(BOOL)isEqualToVersion:(NSString *)version;
+-(BOOL)isEqualOrOlderThanVersion:(NSString *)version;
+-(BOOL)isEqualOrNewerThanVersion:(NSString *)version;
 
 @end

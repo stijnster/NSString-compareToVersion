@@ -43,23 +43,23 @@
 }
 
 
--(BOOL)isOlderThan:(NSString *)version{
+-(BOOL)isOlderThanVersion:(NSString *)version{
     return ([self compareToVersion:version] == NSOrderedAscending);
 }
 
--(BOOL)isNewerThan:(NSString *)version{
+-(BOOL)isNewerThanVersion:(NSString *)version{
     return ([self compareToVersion:version] == NSOrderedDescending);
 }
 
--(BOOL)isEqualTo:(NSString *)version{
+-(BOOL)isEqualToVersion:(NSString *)version{
     return ([self compareToVersion:version] == NSOrderedSame);
 }
 
--(BOOL)isEqualOrOlderThan:(NSString *)version{
+-(BOOL)isEqualOrOlderThanVersion:(NSString *)version{
     return ([self compareToVersion:version] != NSOrderedDescending);
 }
 
--(BOOL)isEqualOrNewerThan:(NSString *)version{
+-(BOOL)isEqualOrNewerThanVersion:(NSString *)version{
     return ([self compareToVersion:version] != NSOrderedAscending);
 }
 

@@ -40,6 +40,67 @@
     [self compareVersion:@" 1.2.3.123 " toVersion:@"1.2.3.123" expectedResult:NSOrderedSame];
 }
 
+-(void)testIsOlderThen{
+    if(![@"1.0" isOlderThanVersion:@"2.0"]){
+        XCTFail(@"Failed 1.0 %s 2.0", __PRETTY_FUNCTION__);
+    }
+    if([@"1.0" isOlderThanVersion:@"1.0"]){
+        XCTFail(@"Failed 1.0 %s 1.0", __PRETTY_FUNCTION__);
+    }
+    if([@"2.0" isOlderThanVersion:@"1.0"]){
+        XCTFail(@"Failed 2.0 %s 1.0", __PRETTY_FUNCTION__);
+    }
+}
+
+-(void)testIsNewerThen{
+    if([@"1.0" isNewerThanVersion:@"2.0"]){
+        XCTFail(@"Failed 1.0 %s 2.0", __PRETTY_FUNCTION__);
+    }
+    if([@"1.0" isNewerThanVersion:@"1.0"]){
+        XCTFail(@"Failed 1.0 %s 1.0", __PRETTY_FUNCTION__);
+    }
+    if(![@"2.0" isNewerThanVersion:@"1.0"]){
+        XCTFail(@"Failed 2.0 %s 1.0", __PRETTY_FUNCTION__);
+    }
+}
+
+-(void)testIsEqualTo{
+    if([@"1.0" isEqualToVersion:@"2.0"]){
+        XCTFail(@"Failed 1.0 %s 2.0", __PRETTY_FUNCTION__);
+    }
+    if(![@"1.0" isEqualToVersion:@"1.0"]){
+        XCTFail(@"Failed 1.0 %s 1.0", __PRETTY_FUNCTION__);
+    }
+    if([@"2.0" isEqualToVersion:@"1.0"]){
+        XCTFail(@"Failed 2.0 %s 1.0", __PRETTY_FUNCTION__);
+    }
+}
+
+-(void)testIsEqualOrOlderThen{
+    if(![@"1.0" isEqualOrOlderThanVersion:@"2.0"]){
+        XCTFail(@"Failed 1.0 %s 2.0", __PRETTY_FUNCTION__);
+    }
+    if(![@"1.0" isEqualOrOlderThanVersion:@"1.0"]){
+        XCTFail(@"Failed 1.0 %s 1.0", __PRETTY_FUNCTION__);
+    }
+    if([@"2.0" isEqualOrOlderThanVersion:@"1.0"]){
+        XCTFail(@"Failed 2.0 %s 1.0", __PRETTY_FUNCTION__);
+    }
+}
+
+-(void)testIsEqualOrNewerThen{
+    if([@"1.0" isEqualOrNewerThanVersion:@"2.0"]){
+        XCTFail(@"Failed 1.0 %s 2.0", __PRETTY_FUNCTION__);
+    }
+    if(![@"1.0" isEqualOrNewerThanVersion:@"1.0"]){
+        XCTFail(@"Failed 1.0 %s 1.0", __PRETTY_FUNCTION__);
+    }
+    if(![@"2.0" isEqualOrNewerThanVersion:@"1.0"]){
+        XCTFail(@"Failed 2.0 %s 1.0", __PRETTY_FUNCTION__);
+    }
+}
+
+
 -(void)compareVersion:(NSString *)version toVersion:(NSString *)compareVersion expectedResult:(NSComparisonResult)expectedResult{
     NSComparisonResult actualResult = [version compareToVersion:compareVersion];
     
