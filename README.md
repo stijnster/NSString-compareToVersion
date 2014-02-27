@@ -27,11 +27,11 @@ There are a few helper methods that make version comparison even easier;
 
 ```objective-c
 
-[@"1.2.2.4" isOlderThan:@"1.2.2.5"];
-[@"1.2.2.4" isNewerThan:@"1.2.2.5"];
-[@"1.2.2.4" isEqualTo:@"1.2.2.5"];
-[@"1.2.2.4" isEqualOrOlderThan:@"1.2.2.5"];
-[@"1.2.2.4" isEqualOrNewerThan:@"1.2.2.5"];
+[@"1.2.2.4" isOlderThanVersion:@"1.2.2.5"];
+[@"1.2.2.4" isNewerThanVersion:@"1.2.2.5"];
+[@"1.2.2.4" isEqualToVersion:@"1.2.2.5"];
+[@"1.2.2.4" isEqualOrOlderThanVersion:@"1.2.2.5"];
+[@"1.2.2.4" isEqualOrNewerThanVersion:@"1.2.2.5"];
 ```
 
 The result is a boolean indicating the test result.
