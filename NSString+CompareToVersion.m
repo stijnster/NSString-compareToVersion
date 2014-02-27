@@ -42,4 +42,24 @@
     return result;
 }
 
+-(BOOL)isOlderThan:(NSString *)version{
+    return ([self compareToVersion:version] == NSOrderedAscending);
+}
+
+-(BOOL)isNewerThan:(NSString *)version{
+    return ([self compareToVersion:version] == NSOrderedDescending);
+}
+
+-(BOOL)isEqualTo:(NSString *)version{
+    return ([self compareToVersion:version] == NSOrderedSame);
+}
+
+-(BOOL)isEqualOrOlderThan:(NSString *)version{
+    return ([self compareToVersion:version] != NSOrderedDescending);
+}
+
+-(BOOL)isEqualOrNewerThan:(NSString *)version{
+    return ([self compareToVersion:version] != NSOrderedAscending);
+}
+
 @end
