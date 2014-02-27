@@ -1,16 +1,16 @@
 //
-//  NSString+CompareWithVersion.m
+//  NSString+CompareToVersion.m
 //  Skylight BVBA
 //
 //  Created by Stijn Mathysen on 27/02/14.
 //  Copyright (c) 2014 Stijn Mathysen. Released under the MIT license
 //
 
-#import "NSString+CompareWithVersion.h"
+#import "NSString+CompareToVersion.h"
 
 @implementation NSString (CompareWithVersion)
 
--(NSComparisonResult)compareWithVersion:(NSString *)version{
+-(NSComparisonResult)compareToVersion:(NSString *)version{
     NSComparisonResult result;
     
     result = NSOrderedSame;

@@ -1,5 +1,5 @@
 //
-//  NSString+CompareWithVersion.h
+//  NSString+CompareToVersion.h
 //  Stijn Mathysen
 //
 //  Created by Stijn Mathysen on 27/02/14.
@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (CompareWithVersion)
+@interface NSString (CompareToVersion)
 
--(NSComparisonResult)compareWithVersion:(NSString *)version;
+-(NSComparisonResult)compareToVersion:(NSString *)version;
 
 @end
