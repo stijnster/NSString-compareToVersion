@@ -1,9 +1,9 @@
 NSString-compareWithVersion
 ===========================
 
-## General
-
 An objective-c category for NSString to do version string comparison.
+
+## General
 
 Compare version strings easily with this category to NSString. To compare versions with each other, simply call the compareToVersion: function.
 
