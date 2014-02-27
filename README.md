@@ -11,7 +11,9 @@ Compare version strings easily with this category to NSString. To compare versio
 
 ```
 
-The function will take all version elements into account and detects version changes more accurate then 
+The result is NSComparisonResult; either NSOrderedAscending, NSOrderedDescending, NSOrderedSame.
+
+The function will take all version elements into account and detects version changes more accurate then e.g.;
 
 ```objective-c
 
