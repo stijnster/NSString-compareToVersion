@@ -22,7 +22,6 @@
 		6AB5461118BFE2AA00B41CDE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6AB5460F18BFE2AA00B41CDE /* InfoPlist.strings */; };
 		6AB5461318BFE2AA00B41CDE /* NSStringCompareToVersionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB5461218BFE2AA00B41CDE /* NSStringCompareToVersionTests.m */; };
 		6AB5461E18BFE2BA00B41CDE /* NSString+CompareToVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB5461D18BFE2BA00B41CDE /* NSString+CompareToVersion.m */; };
-		6AB5462118BFE3C600B41CDE /* NSString+CompateToVersionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB5462018BFE3C600B41CDE /* NSString+CompateToVersionTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +56,6 @@
 		6AB5461218BFE2AA00B41CDE /* NSStringCompareToVersionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSStringCompareToVersionTests.m; sourceTree = "<group>"; };
 		6AB5461C18BFE2BA00B41CDE /* NSString+CompareToVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+CompareToVersion.h"; path = "../../../Library/NSString+CompareToVersion.h"; sourceTree = "<group>"; };
 		6AB5461D18BFE2BA00B41CDE /* NSString+CompareToVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CompareToVersion.m"; path = "../../../Library/NSString+CompareToVersion.m"; sourceTree = "<group>"; };
-		6AB5462018BFE3C600B41CDE /* NSString+CompateToVersionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CompateToVersionTest.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +123,6 @@
 				6AB545FD18BFE2AA00B41CDE /* ViewController.m */,
 				6AB545FF18BFE2AA00B41CDE /* Images.xcassets */,
 				6AB545EE18BFE2AA00B41CDE /* Supporting Files */,
-				6AB5462018BFE3C600B41CDE /* NSString+CompateToVersionTest.m */,
 			);
 			path = NSStringCompareToVersion;
 			sourceTree = "<group>";
@@ -277,7 +274,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AB5461318BFE2AA00B41CDE /* NSStringCompareToVersionTests.m in Sources */,
-				6AB5462118BFE3C600B41CDE /* NSString+CompateToVersionTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
