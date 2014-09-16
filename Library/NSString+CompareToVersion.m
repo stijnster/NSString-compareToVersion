@@ -8,7 +8,7 @@
 
 #import "NSString+CompareToVersion.h"
 
-@implementation NSString (CompareWithVersion)
+@implementation NSString (CompareToVersion)
 
 -(NSComparisonResult)compareToVersion:(NSString *)version{
     NSComparisonResult result;
