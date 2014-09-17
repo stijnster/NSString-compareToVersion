@@ -105,7 +105,7 @@
     NSComparisonResult actualResult = [version compareToVersion:compareVersion];
     
     if(actualResult != expectedResult){
-        XCTFail(@"Compared %@ to %@, expected %d but got %d", version, compareVersion, expectedResult, actualResult);
+        XCTFail(@"Compared %@ to %@, expected %ld but got %ld", version, compareVersion, expectedResult, actualResult);
     }
 }
 
