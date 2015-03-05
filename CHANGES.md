@@ -1,3 +1,8 @@
+v 0.3
+=====
+
+* Thanks to Andrey Fedorov (https://github.com/mpak) for pointing out an inconsitency when comparing equal version numbers of a diffirent length
+
 v 0.2
 =====
 
