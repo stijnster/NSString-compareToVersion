@@ -27,17 +27,31 @@
     [self compareVersion:@"1" toVersion:@"1.1" expectedResult:NSOrderedAscending];
     [self compareVersion:@"1.1" toVersion:@"1.2" expectedResult:NSOrderedAscending];
     [self compareVersion:@"6.4" toVersion:@"6.4.1" expectedResult:NSOrderedAscending];
+    [self compareVersion:@"1.2" toVersion:@"1.2.1" expectedResult:NSOrderedAscending];
+    [self compareVersion:@"1.2" toVersion:@"1.2.0.1" expectedResult:NSOrderedAscending];
+    [self compareVersion:@"1.2.0" toVersion:@"1.2.0.1" expectedResult:NSOrderedAscending];
+    [self compareVersion:@"1.2.0.0" toVersion:@"1.2.0.1" expectedResult:NSOrderedAscending];
+    [self compareVersion:@"1.2.0.0.0" toVersion:@"1.2.0.1" expectedResult:NSOrderedAscending];
 }
 
 -(void)testCompareToVersionDescending{
     [self compareVersion:@"1.12" toVersion:@"1.1" expectedResult:NSOrderedDescending];
     [self compareVersion:@"6.2" toVersion:@"5.4.3.2" expectedResult:NSOrderedDescending];
     [self compareVersion:@"5.4.3.2" toVersion:@"5.0" expectedResult:NSOrderedDescending];
+    [self compareVersion:@"1.2.1" toVersion:@"1.2.0.0" expectedResult:NSOrderedDescending];
+    [self compareVersion:@"1.2.1" toVersion:@"1.2" expectedResult:NSOrderedDescending];
+    [self compareVersion:@"1.2.0.1" toVersion:@"1.2" expectedResult:NSOrderedDescending];
 }
 
 -(void)testCompareToVersionSame{
     [self compareVersion:@"1.2.3.123" toVersion:@"1.2.3.123" expectedResult:NSOrderedSame];
-    [self compareVersion:@" 1.2.3.123 " toVersion:@"1.2.3.123" expectedResult:NSOrderedSame];
+    [self compareVersion:@"1.2.3.123 " toVersion:@"1.2.3.123" expectedResult:NSOrderedSame];
+    [self compareVersion:@"1.2.0 " toVersion:@"1.2" expectedResult:NSOrderedSame];
+    [self compareVersion:@"1.2" toVersion:@"1.2.0" expectedResult:NSOrderedSame];
+    [self compareVersion:@"1.2.0.0" toVersion:@"1.2.0" expectedResult:NSOrderedSame];
+    [self compareVersion:@"1.2.0.0" toVersion:@"1.2" expectedResult:NSOrderedSame];
+    [self compareVersion:@"1.2" toVersion:@"1.2.0.0" expectedResult:NSOrderedSame];
+    [self compareVersion:@"1.2.0" toVersion:@"1.2.0.0" expectedResult:NSOrderedSame];
 }
 
 -(void)testIsOlderThen{
@@ -73,6 +87,24 @@
     }
     if([@"2.0" isEqualToVersion:@"1.0"]){
         XCTFail(@"Failed 2.0 %s 1.0", __PRETTY_FUNCTION__);
+    }
+    if(![@"1.2.0" isEqualToVersion:@"1.2"]){
+        XCTFail(@"Failed 1.2.0 %s 1.2", __PRETTY_FUNCTION__);
+    }
+    if(![@"1.2" isEqualToVersion:@"1.2.0"]){
+        XCTFail(@"Failed 1.2 %s 1.2.0", __PRETTY_FUNCTION__);
+    }
+    if(![@"1.2.0.0" isEqualToVersion:@"1.2"]){
+        XCTFail(@"Failed 1.2.0.0 %s 1.2", __PRETTY_FUNCTION__);
+    }
+    if(![@"1.2" isEqualToVersion:@"1.2.0.0"]){
+        XCTFail(@"Failed 1.2 %s 1.2.0.0", __PRETTY_FUNCTION__);
+    }
+    if(![@"1.2.2" isEqualToVersion:@"1.2.2.0"]){
+        XCTFail(@"Failed 1.2.0.0 %s 1.2", __PRETTY_FUNCTION__);
+    }
+    if(![@"1.2.2.0" isEqualToVersion:@"1.2.2"]){
+        XCTFail(@"Failed 1.2 %s 1.2.0.0", __PRETTY_FUNCTION__);
     }
 }
 

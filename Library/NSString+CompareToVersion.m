@@ -19,8 +19,8 @@
         NSArray *thisVersion = [self componentsSeparatedByString:@"."];
         NSArray *compareVersion = [version componentsSeparatedByString:@"."];
         
-        for(NSInteger index = 0; index < [thisVersion count]; index++){
-            NSInteger thisSegment = [[thisVersion objectAtIndex:index] integerValue];
+        for(NSInteger index = 0; index < MAX([thisVersion count], [compareVersion count]); index++){
+            NSInteger thisSegment = (index < [thisVersion count]) ? [[thisVersion objectAtIndex:index] integerValue] : 0;
             NSInteger compareSegment = (index < [compareVersion count]) ? [[compareVersion objectAtIndex:index] integerValue] : 0;
             
             if(thisSegment < compareSegment){
@@ -32,10 +32,6 @@
                 result = NSOrderedDescending;
                 break;
             }
-        }
-        
-        if((result == NSOrderedSame) && ([compareVersion count] > [thisVersion count])){
-            result = NSOrderedAscending;
         }
     }
     
