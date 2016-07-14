@@ -36,7 +36,7 @@ There are a few helper methods that make version comparison even easier;
 
 The result is a boolean indicating the test result.
 
-## Main version checking
+## Optimistic version checking
 
 [Jowyer](https://github.com/Jowyer) added two new methods that do optimistic version checking. You can define what your "main version" is, and then check to only do updates in the same main version.
 
