@@ -36,6 +36,19 @@ There are a few helper methods that make version comparison even easier;
 
 The result is a boolean indicating the test result.
 
+## Main version checking
+
+[Jowyer](https://github.com/Jowyer) added two new methods that do optimistic version checking. You can define what your "main version" is, and then check to only do updates in the same main version.
+
+```objective-c
+[@"1.2.3.4" getMainVersionWithIntegerCount:1]; // returns 1 as your main version
+[@"1.2.3.4" getMainVersionWithIntegerCount:2]; // returns 1.2 as your main version
+
+[@"1.2.3.4" needsToUpdateToVersion:@"1.2.4" MainVersionIntegerCount: 2]; // returns YES, as the main version (1.2) is the same
+[@"1.2.3.4" needsToUpdateToVersion:@"1.3.6" MainVersionIntegerCount: 2]; // returns NO, as the main version (1.2) is not the same as 1.3
+
+```
+
 ## Testing
 
 A test application is included with a unit test, that covers every method in the class.
@@ -51,4 +64,4 @@ Include the two NSString+CompareToVersion.* files, located in the Library folder
 
 ## Collaborate?
 
-Fork me!!
+Fork me, make your change, write some tests and create a pull request!

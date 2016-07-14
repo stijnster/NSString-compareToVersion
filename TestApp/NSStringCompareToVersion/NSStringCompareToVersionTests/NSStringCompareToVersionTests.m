@@ -153,6 +153,13 @@
     if([@"1.2.3.4" getMainVersionWithIntegerCount:5] != NULL){
         XCTFail(@"Extract main version should be null when the base version has more components then the actual version number %s", __PRETTY_FUNCTION__);
     }
+    
+    if(![[@"1.2.3.4" getMainVersionWithIntegerCount:1] isEqualToString:@"1"]){
+        XCTFail(@"One of the examples in the readme fails! %s", __PRETTY_FUNCTION__);
+    };
+    if(![[@"1.2.3.4" getMainVersionWithIntegerCount:2] isEqualToString:@"1.2"]){
+        XCTFail(@"One of the examples in the readme fails! %s", __PRETTY_FUNCTION__);
+    };
 }
 
 -(void)testNeedsToUpdateToVersion{
@@ -174,6 +181,13 @@
 
     if([currentVersion needsToUpdateToVersion:newVersionInNewMainVersion MainVersionIntegerCount:1] == NO){
         XCTFail(@"Current version %@ should update to %@ when main version is made up by first component %s", currentVersion, newVersionInSameMainVersion, __PRETTY_FUNCTION__);
+    }
+    
+    if([@"1.2.3.4" needsToUpdateToVersion:@"1.2.4" MainVersionIntegerCount: 2] == NO){
+       XCTFail(@"One of the examples in the readme fails! %s", __PRETTY_FUNCTION__);
+    }
+    if([@"1.2.3.4" needsToUpdateToVersion:@"1.3.6" MainVersionIntegerCount: 2] == YES){
+       XCTFail(@"One of the examples in the readme fails! %s", __PRETTY_FUNCTION__);
     }
 }
 
