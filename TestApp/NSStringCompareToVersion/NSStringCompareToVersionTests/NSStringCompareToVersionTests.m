@@ -145,8 +145,13 @@
     if(![[@"1.2.3.4" getMainVersionWithIntegerCount:4] isEqualToString:@"1.2.3.4"]){
         XCTFail(@"Failed to extract main version, should be 1.2.3.4 %s", __PRETTY_FUNCTION__);
     }
+    
+    if([@"1.2.3.4" getMainVersionWithIntegerCount:0] != NULL){
+        XCTFail(@"Extract main version should be null when the base version is 0 %s", __PRETTY_FUNCTION__);
+    }
+    
     if([@"1.2.3.4" getMainVersionWithIntegerCount:5] != NULL){
-        XCTFail(@"Extract main version should be null when the base version has more items then the actual version number %s", __PRETTY_FUNCTION__);
+        XCTFail(@"Extract main version should be null when the base version has more components then the actual version number %s", __PRETTY_FUNCTION__);
     }
 }
 

@@ -64,7 +64,7 @@ static NSString *versionSeparator = @".";
 - (NSString *)getMainVersionWithIntegerCount:(NSInteger)integerCount {
     NSArray *components = [self componentsSeparatedByString:versionSeparator];
     
-    if (components.count >= integerCount) {
+    if((integerCount > 0) && (integerCount <= components.count)){
         return [[components subarrayWithRange:NSMakeRange(0, integerCount)] componentsJoinedByString:versionSeparator];
     }
     
