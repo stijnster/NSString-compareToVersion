@@ -18,8 +18,7 @@
 -(BOOL)isEqualOrOlderThanVersion:(NSString *)version;
 -(BOOL)isEqualOrNewerThanVersion:(NSString *)version;
 
-// Add Optimistic operator support
-- (NSString *)getMainVersionWithIntegerCount:(int)integerCount;
-- (BOOL)needsToUpdateToVersion:(NSString *)newVersion MainVersionIntegerCount:(int)integerCount;
+- (NSString *)getMainVersionWithIntegerCount:(NSInteger)integerCount;
+- (BOOL)needsToUpdateToVersion:(NSString *)newVersion MainVersionIntegerCount:(NSInteger)integerCount;
 
 @end

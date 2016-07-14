@@ -8,6 +8,8 @@
 
 #import "NSString+CompareToVersion.h"
 
+static NSString *versionSeparator = @".";
+
 @implementation NSString (CompareToVersion)
 
 -(NSComparisonResult)compareToVersion:(NSString *)version{
@@ -16,8 +18,8 @@
     result = NSOrderedSame;
     
     if(![self isEqualToString:version]){
-        NSArray *thisVersion = [self componentsSeparatedByString:@"."];
-        NSArray *compareVersion = [version componentsSeparatedByString:@"."];
+        NSArray *thisVersion = [self componentsSeparatedByString:versionSeparator];
+        NSArray *compareVersion = [version componentsSeparatedByString:versionSeparator];
         
         for(NSInteger index = 0; index < MAX([thisVersion count], [compareVersion count]); index++){
             NSInteger thisSegment = (index < [thisVersion count]) ? [[thisVersion objectAtIndex:index] integerValue] : 0;
@@ -59,28 +61,17 @@
     return ([self compareToVersion:version] != NSOrderedAscending);
 }
 
-// Add Optimistic operator support
-- (NSString *)getMainVersionWithIntegerCount:(int)integerCount {
-    NSArray *components = [self componentsSeparatedByString:@"."];
-    NSString *returnString = @"";
-    if (components.count < integerCount) {
-        returnString = nil;
-    } else {
-        for (int i = 0; i <= integerCount - 2; i++) {
-            NSString *integerString = components[i];
-            returnString = [returnString stringByAppendingString:[NSString stringWithFormat:@"%@.", integerString]];
-        }
-        if ((integerCount - 1) >= 0) {
-            NSString *lastIntegerString = components[integerCount - 1];
-            returnString = [returnString stringByAppendingString:lastIntegerString];
-        } else {
-            returnString = nil;
-        }
+- (NSString *)getMainVersionWithIntegerCount:(NSInteger)integerCount {
+    NSArray *components = [self componentsSeparatedByString:versionSeparator];
+    
+    if (components.count >= integerCount) {
+        return [[components subarrayWithRange:NSMakeRange(0, integerCount)] componentsJoinedByString:versionSeparator];
     }
-    return returnString;
+    
+    return NULL;
 }
 
-- (BOOL)needsToUpdateToVersion:(NSString *)newVersion MainVersionIntegerCount:(int)integerCount {
+- (BOOL)needsToUpdateToVersion:(NSString *)newVersion MainVersionIntegerCount:(NSInteger)integerCount {
     NSString *myMainVersion = [self getMainVersionWithIntegerCount:integerCount];
     NSString *newMainVersion = [newVersion getMainVersionWithIntegerCount:integerCount];
     
