@@ -1,3 +1,8 @@
+v 0.4
+=====
+
+* Thanks to Jowyer (https://github.com/Jowyer) for adding optimistic version checking
+
 v 0.3
 =====
 
