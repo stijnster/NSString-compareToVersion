@@ -59,4 +59,40 @@
     return ([self compareToVersion:version] != NSOrderedAscending);
 }
 
+// Add Optimistic operator support
+- (NSString *)getMainVersionWithIntegerCount:(int)integerCount {
+    NSArray *components = [self componentsSeparatedByString:@"."];
+    NSString *returnString = @"";
+    if (components.count < integerCount) {
+        returnString = nil;
+    } else {
+        for (int i = 0; i <= integerCount - 2; i++) {
+            NSString *integerString = components[i];
+            returnString = [returnString stringByAppendingString:[NSString stringWithFormat:@"%@.", integerString]];
+        }
+        if ((integerCount - 1) >= 0) {
+            NSString *lastIntegerString = components[integerCount - 1];
+            returnString = [returnString stringByAppendingString:lastIntegerString];
+        } else {
+            returnString = nil;
+        }
+    }
+    return returnString;
+}
+
+- (BOOL)needsToUpdateToVersion:(NSString *)newVersion MainVersionIntegerCount:(int)integerCount {
+    NSString *myMainVersion = [self getMainVersionWithIntegerCount:integerCount];
+    NSString *newMainVersion = [newVersion getMainVersionWithIntegerCount:integerCount];
+    
+    if ([myMainVersion isEqualToVersion:newMainVersion]) {
+        if ([newVersion isNewerThanVersion:self]) {
+            return YES;
+        } else {
+            return NO;
+        }
+    } else {
+        return NO;
+    }
+}
+
 @end
