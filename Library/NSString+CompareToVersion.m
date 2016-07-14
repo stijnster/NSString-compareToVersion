@@ -76,14 +76,10 @@ static NSString *versionSeparator = @".";
     NSString *newMainVersion = [newVersion getMainVersionWithIntegerCount:integerCount];
     
     if ([myMainVersion isEqualToVersion:newMainVersion]) {
-        if ([newVersion isNewerThanVersion:self]) {
-            return YES;
-        } else {
-            return NO;
-        }
-    } else {
-        return NO;
+        return [newVersion isNewerThanVersion:self];
     }
+    
+    return NO;
 }
 
 @end

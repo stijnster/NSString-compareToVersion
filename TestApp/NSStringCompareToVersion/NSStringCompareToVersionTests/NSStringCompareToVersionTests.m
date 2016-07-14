@@ -150,6 +150,27 @@
     }
 }
 
+-(void)testNeedsToUpdateToVersion{
+    NSString *currentVersion = @"0.2.1";
+    NSString *newVersionInSameMainVersion = @"0.2.2";
+    NSString *newVersionInNewMainVersion = @"0.3";
+
+    if([currentVersion needsToUpdateToVersion:newVersionInSameMainVersion MainVersionIntegerCount:2] == NO){
+        XCTFail(@"Current version %@ should update to %@ when main version is made up by first 2 components %s", currentVersion, newVersionInSameMainVersion, __PRETTY_FUNCTION__);
+    }
+    
+    if([currentVersion needsToUpdateToVersion:newVersionInNewMainVersion MainVersionIntegerCount:2] == YES){
+        XCTFail(@"Current version %@ should NOT update to %@ when main version is made up by first 2 components %s", currentVersion, newVersionInNewMainVersion, __PRETTY_FUNCTION__);
+    }
+    
+    if([currentVersion needsToUpdateToVersion:newVersionInSameMainVersion MainVersionIntegerCount:1] == NO){
+        XCTFail(@"Current version %@ should update to %@ when main version is made up by first component %s", currentVersion, newVersionInSameMainVersion, __PRETTY_FUNCTION__);
+    }
+
+    if([currentVersion needsToUpdateToVersion:newVersionInNewMainVersion MainVersionIntegerCount:1] == NO){
+        XCTFail(@"Current version %@ should update to %@ when main version is made up by first component %s", currentVersion, newVersionInSameMainVersion, __PRETTY_FUNCTION__);
+    }
+}
 
 -(void)compareVersion:(NSString *)version toVersion:(NSString *)compareVersion expectedResult:(NSComparisonResult)expectedResult{
     NSComparisonResult actualResult = [version compareToVersion:compareVersion];
