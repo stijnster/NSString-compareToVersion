@@ -19,6 +19,6 @@
 -(BOOL)isEqualOrNewerThanVersion:(NSString *)version;
 
 - (NSString *)getMainVersionWithIntegerCount:(NSInteger)integerCount;
-- (BOOL)needsToUpdateToVersion:(NSString *)newVersion MainVersionIntegerCount:(NSInteger)integerCount;
+- (BOOL)needsToUpdateToVersion:(NSString *)newVersion mainVersionIntegerCount:(NSInteger)integerCount;
 
 @end
