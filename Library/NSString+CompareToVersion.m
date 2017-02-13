@@ -71,7 +71,7 @@ static NSString *versionSeparator = @".";
     return NULL;
 }
 
-- (BOOL)needsToUpdateToVersion:(NSString *)newVersion MainVersionIntegerCount:(NSInteger)integerCount {
+- (BOOL)needsToUpdateToVersion:(NSString *)newVersion mainVersionIntegerCount:(NSInteger)integerCount {
     NSString *myMainVersion = [self getMainVersionWithIntegerCount:integerCount];
     NSString *newMainVersion = [newVersion getMainVersionWithIntegerCount:integerCount];
     
