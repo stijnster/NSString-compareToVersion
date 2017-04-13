@@ -44,8 +44,8 @@ The result is a boolean indicating the test result.
 [@"1.2.3.4" getMainVersionWithIntegerCount:1]; // returns 1 as your main version
 [@"1.2.3.4" getMainVersionWithIntegerCount:2]; // returns 1.2 as your main version
 
-[@"1.2.3.4" needsToUpdateToVersion:@"1.2.4" MainVersionIntegerCount: 2]; // returns YES, as the main version (1.2) is the same
-[@"1.2.3.4" needsToUpdateToVersion:@"1.3.6" MainVersionIntegerCount: 2]; // returns NO, as the main version (1.2) is not the same as 1.3
+[@"1.2.3.4" needsToUpdateToVersion:@"1.2.4" mainVersionIntegerCount: 2]; // returns YES, as the main version (1.2) is the same
+[@"1.2.3.4" needsToUpdateToVersion:@"1.3.6" mainVersionIntegerCount: 2]; // returns NO, as the main version (1.2) is not the same as 1.3
 
 ```
 
