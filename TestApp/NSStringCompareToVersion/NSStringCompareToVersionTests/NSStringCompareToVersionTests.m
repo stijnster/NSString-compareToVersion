@@ -167,26 +167,26 @@
     NSString *newVersionInSameMainVersion = @"0.2.2";
     NSString *newVersionInNewMainVersion = @"0.3";
 
-    if([currentVersion needsToUpdateToVersion:newVersionInSameMainVersion MainVersionIntegerCount:2] == NO){
+    if([currentVersion needsToUpdateToVersion:newVersionInSameMainVersion mainVersionIntegerCount:2] == NO){
         XCTFail(@"Current version %@ should update to %@ when main version is made up by first 2 components %s", currentVersion, newVersionInSameMainVersion, __PRETTY_FUNCTION__);
     }
-    
-    if([currentVersion needsToUpdateToVersion:newVersionInNewMainVersion MainVersionIntegerCount:2] == YES){
+
+    if([currentVersion needsToUpdateToVersion:newVersionInNewMainVersion mainVersionIntegerCount:2] == YES){
         XCTFail(@"Current version %@ should NOT update to %@ when main version is made up by first 2 components %s", currentVersion, newVersionInNewMainVersion, __PRETTY_FUNCTION__);
     }
     
-    if([currentVersion needsToUpdateToVersion:newVersionInSameMainVersion MainVersionIntegerCount:1] == NO){
+    if([currentVersion needsToUpdateToVersion:newVersionInSameMainVersion mainVersionIntegerCount:1] == NO){
         XCTFail(@"Current version %@ should update to %@ when main version is made up by first component %s", currentVersion, newVersionInSameMainVersion, __PRETTY_FUNCTION__);
     }
 
-    if([currentVersion needsToUpdateToVersion:newVersionInNewMainVersion MainVersionIntegerCount:1] == NO){
+    if([currentVersion needsToUpdateToVersion:newVersionInNewMainVersion mainVersionIntegerCount:1] == NO){
         XCTFail(@"Current version %@ should update to %@ when main version is made up by first component %s", currentVersion, newVersionInSameMainVersion, __PRETTY_FUNCTION__);
     }
     
-    if([@"1.2.3.4" needsToUpdateToVersion:@"1.2.4" MainVersionIntegerCount: 2] == NO){
+    if([@"1.2.3.4" needsToUpdateToVersion:@"1.2.4" mainVersionIntegerCount: 2] == NO){
        XCTFail(@"One of the examples in the readme fails! %s", __PRETTY_FUNCTION__);
     }
-    if([@"1.2.3.4" needsToUpdateToVersion:@"1.3.6" MainVersionIntegerCount: 2] == YES){
+    if([@"1.2.3.4" needsToUpdateToVersion:@"1.3.6" mainVersionIntegerCount: 2] == YES){
        XCTFail(@"One of the examples in the readme fails! %s", __PRETTY_FUNCTION__);
     }
 }

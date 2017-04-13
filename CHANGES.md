@@ -1,3 +1,8 @@
+v 0.5
+=====
+
+* Thanks to flyingBear66 (https://github.com/flyingBear66) for fixing a typo in a methodname
+
 v 0.4
 =====
 
