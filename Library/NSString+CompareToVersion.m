@@ -13,10 +13,8 @@ static NSString *versionSeparator = @".";
 @implementation NSString (CompareToVersion)
 
 - (NSComparisonResult)compareToVersion:(NSString *)version {
-    NSComparisonResult result = NSOrderedSame;
-
     if ([self isEqualToString:version])
-        return result;
+        return NSOrderedSame;
     
     NSArray *thisVersion = [self componentsSeparatedByString:versionSeparator];
     NSArray *compareVersion = [version componentsSeparatedByString:versionSeparator];
@@ -26,17 +24,15 @@ static NSString *versionSeparator = @".";
         NSInteger compareSegment = (index < [compareVersion count]) ? [[compareVersion objectAtIndex:index] integerValue] : 0;
 
         if (thisSegment < compareSegment) {
-            result = NSOrderedAscending;
-            break;
+            return NSOrderedAscending;
         }
 
         if (thisSegment > compareSegment) {
-            result = NSOrderedDescending;
-            break;
+            return NSOrderedDescending;
         }
     }
-
-    return result;
+    
+    return NSOrderedSame;
 }
 
 
