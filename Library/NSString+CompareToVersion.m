@@ -13,27 +13,26 @@ static NSString *versionSeparator = @".";
 @implementation NSString (CompareToVersion)
 
 - (NSComparisonResult)compareToVersion:(NSString *)version {
-    NSComparisonResult result;
+    NSComparisonResult result = NSOrderedSame;
 
-    result = NSOrderedSame;
+    if ([self isEqualToString:version])
+        return result;
+    
+    NSArray *thisVersion = [self componentsSeparatedByString:versionSeparator];
+    NSArray *compareVersion = [version componentsSeparatedByString:versionSeparator];
 
-    if (![self isEqualToString:version]) {
-        NSArray *thisVersion = [self componentsSeparatedByString:versionSeparator];
-        NSArray *compareVersion = [version componentsSeparatedByString:versionSeparator];
+    for (NSInteger index = 0; index < MAX([thisVersion count], [compareVersion count]); index++) {
+        NSInteger thisSegment = (index < [thisVersion count]) ? [[thisVersion objectAtIndex:index] integerValue] : 0;
+        NSInteger compareSegment = (index < [compareVersion count]) ? [[compareVersion objectAtIndex:index] integerValue] : 0;
 
-        for (NSInteger index = 0; index < MAX([thisVersion count], [compareVersion count]); index++) {
-            NSInteger thisSegment = (index < [thisVersion count]) ? [[thisVersion objectAtIndex:index] integerValue] : 0;
-            NSInteger compareSegment = (index < [compareVersion count]) ? [[compareVersion objectAtIndex:index] integerValue] : 0;
+        if (thisSegment < compareSegment) {
+            result = NSOrderedAscending;
+            break;
+        }
 
-            if (thisSegment < compareSegment) {
-                result = NSOrderedAscending;
-                break;
-            }
-
-            if (thisSegment > compareSegment) {
-                result = NSOrderedDescending;
-                break;
-            }
+        if (thisSegment > compareSegment) {
+            result = NSOrderedDescending;
+            break;
         }
     }
 
