@@ -10,15 +10,16 @@
 
 @interface NSString (CompareToVersion)
 
--(NSComparisonResult)compareToVersion:(NSString *)version;
+- (NSComparisonResult)compareToVersion:(NSString *)version;
 
--(BOOL)isOlderThanVersion:(NSString *)version;
--(BOOL)isNewerThanVersion:(NSString *)version;
--(BOOL)isEqualToVersion:(NSString *)version;
--(BOOL)isEqualOrOlderThanVersion:(NSString *)version;
--(BOOL)isEqualOrNewerThanVersion:(NSString *)version;
+- (BOOL)isOlderThanVersion:(NSString *)version;
+- (BOOL)isNewerThanVersion:(NSString *)version;
+- (BOOL)isEqualToVersion:(NSString *)version;
+- (BOOL)isEqualOrOlderThanVersion:(NSString *)version;
+- (BOOL)isEqualOrNewerThanVersion:(NSString *)version;
 
 - (NSString *)getMainVersionWithIntegerCount:(NSInteger)integerCount;
 - (BOOL)needsToUpdateToVersion:(NSString *)newVersion mainVersionIntegerCount:(NSInteger)integerCount;
 
 @end
+
