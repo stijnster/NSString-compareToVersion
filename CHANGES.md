@@ -1,3 +1,8 @@
+v 0.6
+=====
+
+* Thanks to Shebuka (https://github.com/Shebuka) for improving formatting and some code optimisations
+
 v 0.5
 =====
 
