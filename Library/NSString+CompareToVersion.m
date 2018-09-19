@@ -19,7 +19,9 @@ static NSString *versionSeparator = @".";
     NSArray *thisVersion = [self componentsSeparatedByString:versionSeparator];
     NSArray *compareVersion = [version componentsSeparatedByString:versionSeparator];
 
-    for (NSInteger index = 0; index < MAX([thisVersion count], [compareVersion count]); index++) {
+    NSInteger maxCount = MAX([thisVersion count], [compareVersion count]);
+
+    for (NSInteger index = 0; index < maxCount; index++) {
         NSInteger thisSegment = (index < [thisVersion count]) ? [[thisVersion objectAtIndex:index] integerValue] : 0;
         NSInteger compareSegment = (index < [compareVersion count]) ? [[compareVersion objectAtIndex:index] integerValue] : 0;
 
